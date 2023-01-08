@@ -1,0 +1,14 @@
+<table>
+    <tr>
+       <th>Day</th>
+       <th>Measure</th>
+       <th>Reading</th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+       <td>{{ row['Day'] }}</td>
+       <td>{{ row['Measure'] }}</td>
+       <td>{{ row['Reading'] }}</td>
+    </tr>
+    {% endfor %}
+ </table>
