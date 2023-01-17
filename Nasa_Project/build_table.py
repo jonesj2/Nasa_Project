@@ -71,24 +71,3 @@ days_column.append("null")
 
 new_frame = pd.DataFrame.from_dict(final_dct)
 new_frame.insert(0, "Days", days_column, True) 
-
-
-#Connect MySQL database
-cnx = sqlite3.connect('NASA_database')
-cursor = cnx.cursor()
-
-#make a weather table in the database (only need to run once, then comment function out)
-cursor.execute("CREATE TABLE IF NOT EXISTS martian_weather (Days VARCHAR(255) NOT NULL, Measure VARCHAR(255) NOT NULL, Reading VARCHAR(255) NOT NULL)")
-
-#Put weather information in the weather table
-new_frame.to_sql('martian_weather', cnx, if_exists='replace', index = False)
-
-cursor.execute('''  SELECT * FROM martian_weather''')
-
-for row in cursor.fetchall():
-    print (row)
-
-
-cnx.commit()
-cursor.close()
-cnx.close()
