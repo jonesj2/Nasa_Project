@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .post {
+            padding: 10px;
+            margin: 5px;
+            background-color: #ffffff
+        }
+
+        nav a {
+            color: #c04004;
+            font-size: 3em;
+            margin-left: 50px;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" style="font-size: 39px; text-decoration: none">Home</a>
+        <a href="data.html">NASA's Mars Data</a>
+        <a href="about.html" style="font-size: 39px; text-decoration: none">About</a>
+    </nav>
+    <hr>
+    <div class="welcome">
+        {% block welcome %}
+        <h1>{% block title %} Welcome!{% endblock %}</h1>
+        {% endblock %}
+      </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+   </body>
+   </html>
